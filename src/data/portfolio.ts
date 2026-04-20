@@ -73,18 +73,21 @@ export const experiences: Experience[] = [
 ];
 
 export const skills: Skill[] = [
-  { id: 'javascript', name: 'JavaScript', category: 'frontend', proficiency: 90 },
-  { id: 'typescript', name: 'TypeScript', category: 'frontend', proficiency: 80 },
-  { id: 'react', name: 'React.js', category: 'frontend', proficiency: 90 },
-  { id: 'html5', name: 'HTML5', category: 'frontend', proficiency: 95 },
-  { id: 'css3', name: 'CSS3', category: 'frontend', proficiency: 90 },
-  { id: 'csharp', name: 'C#', category: 'backend', proficiency: 75 },
-  { id: 'nodejs', name: 'Node.js', category: 'backend', proficiency: 70 },
-  { id: 'rest-apis', name: 'REST APIs', category: 'backend', proficiency: 85 },
-  { id: 'sql', name: 'SQL', category: 'backend', proficiency: 70 },
-  { id: 'git', name: 'Git', category: 'tools', proficiency: 85 },
-  { id: 'wordpress', name: 'WordPress', category: 'tools', proficiency: 75 },
-  { id: 'figma', name: 'Figma', category: 'tools', proficiency: 70 },
+  { id: 'react', name: 'React.js', category: 'frontend' },
+  { id: 'typescript', name: 'TypeScript', category: 'frontend' },
+  { id: 'javascript', name: 'JavaScript', category: 'frontend' },
+  { id: 'html5', name: 'HTML5', category: 'frontend' },
+  { id: 'css3', name: 'CSS3', category: 'frontend' },
+  { id: 'csharp', name: 'C#', category: 'backend' },
+  { id: 'nodejs', name: 'Node.js', category: 'backend' },
+  { id: 'rest-apis', name: 'REST APIs', category: 'backend' },
+  { id: 'sql', name: 'SQL', category: 'backend' },
+  { id: 'git', name: 'Git', category: 'tools' },
+  { id: 'gitflow', name: 'GitFlow', category: 'tools' },
+  { id: 'docker', name: 'Docker', category: 'tools' },
+  { id: 'cicd', name: 'CI/CD', category: 'tools' },
+  { id: 'wordpress', name: 'WordPress', category: 'tools' },
+  { id: 'figma', name: 'Figma', category: 'tools' },
 ];
 
 export const certifications: Certification[] = [

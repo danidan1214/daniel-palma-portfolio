@@ -11,9 +11,10 @@ import {
   SiWordpress,
   SiFigma,
   SiGit,
+  SiDocker,
   SiPostgresql,
 } from 'react-icons/si';
-import { FiCode, FiLayout, FiTool, FiUsers } from 'react-icons/fi';
+import { FiCode, FiLayout, FiTool, FiUsers, FiGitBranch, FiRefreshCw } from 'react-icons/fi';
 import { skills } from '../../data/portfolio';
 import { Section, SectionHeading } from '../../components/ui';
 import type { Skill, SkillCategory } from '../../types';
@@ -29,6 +30,9 @@ const iconMap: Record<Skill['id'], ComponentType<{ className?: string }>> = {
   'rest-apis': FiCode,
   sql: SiPostgresql,
   git: SiGit,
+  gitflow: FiGitBranch,
+  docker: SiDocker,
+  cicd: FiRefreshCw,
   wordpress: SiWordpress,
   figma: SiFigma,
 };
@@ -48,22 +52,19 @@ const colorStyles = {
     bg: 'bg-terracotta-50',
     border: 'border-terracotta-200',
     icon: 'text-terracotta-500',
-    bar: 'bg-terracotta-400',
-    barBg: 'bg-terracotta-100',
+    tag: 'bg-terracotta-100 text-terracotta-700',
   },
   amber: {
     bg: 'bg-amber-50',
     border: 'border-amber-200',
     icon: 'text-amber-600',
-    bar: 'bg-amber-400',
-    barBg: 'bg-amber-100',
+    tag: 'bg-amber-100 text-amber-700',
   },
   warm: {
     bg: 'bg-warm-100',
     border: 'border-warm-300',
     icon: 'text-warm-600',
-    bar: 'bg-warm-500',
-    barBg: 'bg-warm-200',
+    tag: 'bg-warm-200 text-warm-700',
   },
 } as const;
 
@@ -104,32 +105,17 @@ export function SkillsGrid() {
                   <h3 className="text-lg font-bold text-warm-800">{config.label}</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {categorySkills.map((skill: Skill) => {
                     const SkillIcon = iconMap[skill.id];
                     return (
-                      <div key={skill.id}>
-                        <div className="flex items-center gap-2 mb-1.5">
-                          {SkillIcon && (
-                            <SkillIcon className={`text-base ${styles.icon}`} />
-                          )}
-                          <span className="text-sm font-medium text-warm-700">
-                            {skill.name}
-                          </span>
-                          <span className="text-xs text-warm-500 ml-auto">
-                            {skill.proficiency}%
-                          </span>
-                        </div>
-                        <div className={`h-1.5 ${styles.barBg} rounded-full overflow-hidden`}>
-                          <motion.div
-                            className={`h-full ${styles.bar} rounded-full`}
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.proficiency}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                          />
-                        </div>
-                      </div>
+                      <span
+                        key={skill.id}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium ${styles.tag}`}
+                      >
+                        {SkillIcon && <SkillIcon className="text-sm" />}
+                        {skill.name}
+                      </span>
                     );
                   })}
                 </div>
