@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { contact } from '../../data/portfolio';
+import { useTypewriter } from '../../hooks/useTypewriter';
+
+const titles = [
+  'Full Stack Developer',
+  'Frontend Engineer',
+  'React Developer',
+];
 
 export function Hero() {
+  const { text } = useTypewriter({ words: titles });
+
   return (
     <section
       id="hero"
@@ -18,9 +27,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-indigo-600 dark:text-indigo-400 font-medium tracking-wide uppercase text-sm mb-4"
+          className="text-indigo-600 dark:text-indigo-400 font-medium tracking-wide uppercase text-sm mb-4 h-6"
         >
-          Full Stack Developer
+          {text}
+          <span
+            className="inline-block w-[2px] h-4 ml-0.5 bg-indigo-600 dark:bg-indigo-400 align-middle animate-blink"
+          />
         </motion.p>
 
         <motion.h1
