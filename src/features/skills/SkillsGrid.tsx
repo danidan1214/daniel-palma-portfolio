@@ -14,7 +14,20 @@ import {
   SiDocker,
   SiPostgresql,
 } from 'react-icons/si';
-import { FiCode, FiLayout, FiTool, FiUsers, FiGitBranch, FiRefreshCw } from 'react-icons/fi';
+import {
+  FiCode,
+  FiLayout,
+  FiTool,
+  FiUsers,
+  FiGitBranch,
+  FiRefreshCw,
+  FiAward,
+  FiZap,
+  FiTarget,
+  FiMessageCircle,
+  FiCompass,
+  FiStar,
+} from 'react-icons/fi';
 import { skills } from '../../data/portfolio';
 import { Section, SectionHeading } from '../../components/ui';
 import type { Skill, SkillCategory } from '../../types';
@@ -37,6 +50,15 @@ const iconMap: Record<Skill['id'], ComponentType<{ className?: string }>> = {
   figma: SiFigma,
 };
 
+const softIconMap: Record<string, ComponentType<{ className?: string }>> = {
+  FiAward,
+  FiZap,
+  FiRefreshCw,
+  FiTarget,
+  FiMessageCircle,
+  FiCompass,
+};
+
 const categoryConfig: Record<
   SkillCategory,
   { label: string; icon: ComponentType<{ className?: string }>; color: 'terracotta' | 'amber' | 'warm' }
@@ -44,7 +66,7 @@ const categoryConfig: Record<
   frontend: { label: 'Frontend', icon: FiLayout, color: 'terracotta' },
   backend: { label: 'Backend', icon: FiCode, color: 'amber' },
   tools: { label: 'Tools', icon: FiTool, color: 'warm' },
-  soft: { label: 'Soft Skills', icon: FiUsers, color: 'warm' },
+  soft: { label: 'Complementary Skills', icon: FiUsers, color: 'warm' },
 };
 
 const colorStyles = {
@@ -68,7 +90,12 @@ const colorStyles = {
   },
 } as const;
 
-const grouped = skills.reduce<Record<SkillCategory, Skill[]>>(
+const technicalCategories: SkillCategory[] = ['frontend', 'backend', 'tools'];
+
+const technicalSkills = skills.filter((s) => technicalCategories.includes(s.category));
+const softSkills = skills.filter((s) => s.category === 'soft');
+
+const grouped = technicalSkills.reduce<Record<SkillCategory, Skill[]>>(
   (acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = [];
     acc[skill.category].push(skill);
@@ -123,6 +150,37 @@ export function SkillsGrid() {
             );
           })}
         </div>
+
+        {softSkills.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5 }}
+            className="mt-10 text-center"
+          >
+            <h3 className="text-lg font-bold text-warm-800 mb-4 inline-flex items-center gap-2">
+              <FiStar className="text-terracotta-500" />
+              Complementary Skills
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {softSkills.map((skill) => {
+                const SoftIcon = skill.icon ? softIconMap[skill.icon] : null;
+                return (
+                  <motion.span
+                    key={skill.id}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white/70 text-terracotta-700 border border-terracotta-200/60 cursor-default"
+                  >
+                    {SoftIcon && <SoftIcon className="text-xs" />}
+                    {skill.name}
+                  </motion.span>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
       </div>
     </Section>
   );

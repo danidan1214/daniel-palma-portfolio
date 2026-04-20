@@ -88,6 +88,12 @@ export const skills: Skill[] = [
   { id: 'cicd', name: 'CI/CD', category: 'tools' },
   { id: 'wordpress', name: 'WordPress', category: 'tools' },
   { id: 'figma', name: 'Figma', category: 'tools' },
+  { id: 'tech-leadership', name: 'Technical Leadership', category: 'soft', icon: 'FiAward' },
+  { id: 'problem-solving', name: 'Problem Solving', category: 'soft', icon: 'FiZap' },
+  { id: 'agile', name: 'Agile Methodologies (Scrum)', category: 'soft', icon: 'FiRefreshCw' },
+  { id: 'project-mgmt', name: 'Project Management', category: 'soft', icon: 'FiTarget' },
+  { id: 'communication', name: 'Effective Communication', category: 'soft', icon: 'FiMessageCircle' },
+  { id: 'adaptability', name: 'Adaptability', category: 'soft', icon: 'FiCompass' },
 ];
 
 export const certifications: Certification[] = [
