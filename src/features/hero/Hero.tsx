@@ -9,7 +9,7 @@ export function Hero() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16"
       aria-label="Introduction"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
       <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
@@ -18,7 +18,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-indigo-400 font-medium tracking-wide uppercase text-sm mb-4"
+          className="text-indigo-600 dark:text-indigo-400 font-medium tracking-wide uppercase text-sm mb-4"
         >
           Full Stack Developer
         </motion.p>
@@ -27,7 +27,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
         >
           Daniel Palma
         </motion.h1>
@@ -36,18 +36,18 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-300 mb-4 leading-relaxed max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-4 leading-relaxed max-w-2xl mx-auto"
         >
           Building modern web experiences with{' '}
-          <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent font-semibold">React</span> &{' '}
-          <span className="text-blue-400 font-semibold">C#</span>
+          <span className="bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent font-semibold">React</span> &{' '}
+          <span className="text-blue-600 dark:text-blue-400 font-semibold">C#</span>
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-slate-400 text-lg mb-10 max-w-xl mx-auto"
+          className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-xl mx-auto"
         >
           Crafting responsive interfaces, scalable APIs, and end-to-end solutions
           that connect people with technology.
@@ -67,7 +67,7 @@ export function Hero() {
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 border-2 border-slate-600 text-slate-300 rounded-lg font-medium hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
+            className="px-8 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
           >
             Get in Touch
           </a>
@@ -84,14 +84,14 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="text-slate-500 hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
           >
             <FiLinkedin />
           </a>
           <a
             href={`mailto:${contact.email}`}
             aria-label="Send email"
-            className="text-slate-500 hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
           >
             <FiMail />
           </a>
@@ -100,7 +100,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="text-slate-500 hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
           >
             <FiGithub />
           </a>
@@ -117,9 +117,9 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center pt-2"
+            className="w-6 h-10 border-2 border-slate-400 dark:border-slate-600 rounded-full flex justify-center pt-2"
           >
-            <div className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full" />
           </motion.div>
         </a>
       </motion.div>

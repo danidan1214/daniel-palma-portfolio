@@ -71,22 +71,22 @@ const categoryConfig: Record<
 
 const colorStyles = {
   indigo: {
-    bg: 'bg-indigo-950/50',
-    border: 'border-indigo-500/30',
-    icon: 'text-indigo-400',
-    tag: 'bg-indigo-500/10 text-indigo-300',
+    bg: 'bg-indigo-50 dark:bg-indigo-950/50',
+    border: 'border-indigo-200 dark:border-indigo-500/30',
+    icon: 'text-indigo-600 dark:text-indigo-400',
+    tag: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300',
   },
   blue: {
-    bg: 'bg-blue-950/50',
-    border: 'border-blue-500/30',
-    icon: 'text-blue-400',
-    tag: 'bg-blue-500/10 text-blue-300',
+    bg: 'bg-blue-50 dark:bg-blue-950/50',
+    border: 'border-blue-200 dark:border-blue-500/30',
+    icon: 'text-blue-600 dark:text-blue-400',
+    tag: 'bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300',
   },
   slate: {
-    bg: 'bg-slate-800/50',
-    border: 'border-slate-600',
-    icon: 'text-slate-400',
-    tag: 'bg-slate-700/50 text-slate-300',
+    bg: 'bg-slate-100 dark:bg-slate-800/50',
+    border: 'border-slate-300 dark:border-slate-600',
+    icon: 'text-slate-500 dark:text-slate-400',
+    tag: 'bg-slate-200 text-slate-700 dark:bg-slate-700/50 dark:text-slate-300',
   },
 } as const;
 
@@ -106,7 +106,7 @@ const grouped = technicalSkills.reduce<Record<SkillCategory, Skill[]>>(
 
 export function SkillsGrid() {
   return (
-    <Section id="skills" className="bg-slate-900" ariaLabel="Technical skills">
+    <Section id="skills" className="bg-slate-100 dark:bg-slate-900" ariaLabel="Technical skills">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeading subtitle="Technologies and tools I use to bring ideas to life.">
           Skills &amp; Technologies
@@ -129,7 +129,7 @@ export function SkillsGrid() {
               >
                 <div className="flex items-center gap-2 mb-6">
                   <Icon className={`text-xl ${styles.icon}`} />
-                  <h3 className="text-lg font-bold text-white">{config.label}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{config.label}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -159,8 +159,8 @@ export function SkillsGrid() {
             transition={{ duration: 0.5 }}
             className="mt-10 text-center"
           >
-            <h3 className="text-lg font-bold text-white mb-4 inline-flex items-center gap-2">
-              <FiStar className="text-indigo-400" />
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 inline-flex items-center gap-2">
+              <FiStar className="text-indigo-600 dark:text-indigo-400" />
               Complementary Skills
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
@@ -171,7 +171,7 @@ export function SkillsGrid() {
                     key={skill.id}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-transparent text-indigo-300 border border-indigo-500/30 cursor-default hover:shadow-lg hover:shadow-indigo-500/20 transition-shadow"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-transparent text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30 cursor-default hover:shadow-lg hover:shadow-indigo-500/20 transition-shadow"
                   >
                     {SoftIcon && <SoftIcon className="text-xs" />}
                     {skill.name}
