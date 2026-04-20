@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useScrolled } from '../hooks/useScrolled';
@@ -17,6 +17,17 @@ const navLinks = [
 export function Layout({ children }: LayoutProps) {
   const isScrolled = useScrolled(20);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -59,17 +70,28 @@ export function Layout({ children }: LayoutProps) {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-slate-900/95 backdrop-blur-md"
+              key="mobile-menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800"
             >
               <ul className="px-6 py-4 space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMobileMenuOpen(false);
+                        const target = document.querySelector(link.href);
+                        if (target) {
+                          setTimeout(() => {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        }
+                      }}
                       className="block text-slate-400 hover:text-indigo-400 transition-colors font-medium py-1"
                     >
                       {link.label}
