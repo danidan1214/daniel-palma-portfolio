@@ -1,3 +1,11 @@
+export interface ExperienceRole {
+  role: string;
+  period: string;
+  description?: string;
+  highlights: string[];
+  stack?: string[];
+}
+
 export interface Experience {
   id: string;
   role: string;
@@ -9,6 +17,7 @@ export interface Experience {
   description?: string;
   highlights: string[];
   stack?: string[];
+  roles?: ExperienceRole[];
 }
 
 export type SkillCategory = 'frontend' | 'backend' | 'tools' | 'soft';
