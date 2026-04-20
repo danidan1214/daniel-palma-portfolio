@@ -2,44 +2,6 @@ import type { Experience, Skill, Certification, ContactInfo } from '../types';
 
 export const experiences: Experience[] = [
   {
-    id: 'funiber-fullstack',
-    role: 'Desarrollador Full Stack',
-    company: 'Fundación Universitaria Iberoamericana (FUNIBER)',
-    location: 'Guayaquil, Ecuador — Presencial',
-    period: 'May 2023 — Feb 2026',
-    type: 'full-time',
-    description:
-      'Entered the technology area from the Advertising Deliveries team, applying technical fundamentals for template creation, data management, and digital campaign automation.',
-    highlights: [
-      'Built 120+ responsive HTML templates for email marketing with 99% correct rendering across Outlook, Gmail, and Apple Mail.',
-      'Implemented semantic HTML, modular CSS, and responsive design best practices, reducing visual errors by 40%.',
-      'Managed and segmented customer/lead databases, increasing campaign effectiveness by 18%.',
-      'Automated operational workflows and SMTP configurations, reducing manual tasks by 30%.',
-      'Collaborated with design and product teams for visual consistency across digital communications.',
-      'Performed frontend adjustments on WordPress sites, optimizing load times and cross-browser compatibility.',
-    ],
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'React', 'REST APIs', 'WordPress', 'Git'],
-  },
-  {
-    id: 'funiber-frontend',
-    role: 'Frontend Developer',
-    company: 'Fundación Universitaria Iberoamericana (FUNIBER)',
-    location: 'Guayaquil, Ecuador',
-    period: 'Jul 2024 — Jan 2026',
-    type: 'full-time',
-    description:
-      'Natural transition into frontend development after consolidating experience in HTML/CSS, automation, and UX.',
-    highlights: [
-      'Developed reusable React components, integrating REST APIs and optimizing load times by up to 25%.',
-      'Implemented responsive, maintainable interfaces using JavaScript, modern CSS, and reusable design patterns.',
-      'Refactored legacy modules to improve readability, accessibility, and performance.',
-      'Contributed to technical documentation, standardizing styles and component structure.',
-      'Supported migration from legacy platforms to modern, efficient interfaces.',
-      'Brought a UX/UI perspective based on prior experience in layout and digital communication design.',
-    ],
-    stack: ['React', 'JavaScript', 'CSS3', 'REST APIs', 'WordPress', 'Git'],
-  },
-  {
     id: 'independent',
     role: 'Programador Full Stack',
     company: 'Profesional Independiente',
@@ -51,6 +13,47 @@ export const experiences: Experience[] = [
       'Managing projects from requirements gathering through deployment.',
     ],
     stack: ['React', 'C#', 'Node.js', 'TypeScript', 'SQL'],
+  },
+  {
+    id: 'funiber',
+    role: '',
+    company: 'Fundación Universitaria Iberoamericana (FUNIBER)',
+    location: 'Guayaquil, Ecuador',
+    period: 'May 2023 — Feb 2026',
+    type: 'full-time',
+    highlights: [],
+    roles: [
+      {
+        role: 'Frontend Developer',
+        period: 'Jul 2024 — Feb 2026',
+        description:
+          'Natural transition into frontend development after consolidating experience in HTML/CSS, automation, and UX.',
+        highlights: [
+          'Developed reusable React components, integrating REST APIs and optimizing load times by up to 25%.',
+          'Implemented responsive, maintainable interfaces using JavaScript, modern CSS, and reusable design patterns.',
+          'Refactored legacy modules to improve readability, accessibility, and performance.',
+          'Contributed to technical documentation, standardizing styles and component structure.',
+          'Supported migration from legacy platforms to modern, efficient interfaces.',
+          'Brought a UX/UI perspective based on prior experience in layout and digital communication design.',
+        ],
+        stack: ['React', 'JavaScript', 'CSS3', 'REST APIs', 'WordPress', 'Git'],
+      },
+      {
+        role: 'Marketing Automation Developer',
+        period: 'May 2023 — Jun 2024',
+        description:
+          'Entered the technology area from the Advertising Deliveries team, applying technical fundamentals for template creation, data management, and digital campaign automation.',
+        highlights: [
+          'Built 120+ responsive HTML templates for email marketing with 99% correct rendering across Outlook, Gmail, and Apple Mail.',
+          'Implemented semantic HTML, modular CSS, and responsive design best practices, reducing visual errors by 40%.',
+          'Managed and segmented customer/lead databases, increasing campaign effectiveness by 18%.',
+          'Automated operational workflows and SMTP configurations, reducing manual tasks by 30%.',
+          'Collaborated with design and product teams for visual consistency across digital communications.',
+          'Performed frontend adjustments on WordPress sites, optimizing load times and cross-browser compatibility.',
+        ],
+        stack: ['HTML5', 'CSS3', 'JavaScript', 'React', 'REST APIs', 'WordPress', 'Git'],
+      },
+    ],
   },
   {
     id: 'coinary',
