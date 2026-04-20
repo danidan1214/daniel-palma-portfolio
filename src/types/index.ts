@@ -26,6 +26,7 @@ export interface Certification {
   issuer: string;
   date: string;
   skills: string[];
+  url: string;
 }
 
 export interface ContactInfo {

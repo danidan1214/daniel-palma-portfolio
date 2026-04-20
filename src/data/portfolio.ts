@@ -94,6 +94,7 @@ export const certifications: Certification[] = [
     issuer: 'Meta',
     date: 'Oct 2024',
     skills: ['JavaScript', 'React.js', 'Node.js', 'C#'],
+    url: 'https://www.credly.com/badges/5f51c5dd-f7cb-4cfa-ab68-a99d6e374bc0/linked_in_profile',
   },
   {
     id: 'meta-frontend',
@@ -101,6 +102,7 @@ export const certifications: Certification[] = [
     issuer: 'Meta',
     date: 'Sep 2024',
     skills: ['JavaScript', 'React.js'],
+    url: 'https://www.credly.com/badges/1613713f-4d69-4db5-98f0-ebbc886e9c7f/linked_in_profile',
   },
   {
     id: 'meta-backend',
@@ -108,6 +110,7 @@ export const certifications: Certification[] = [
     issuer: 'Meta',
     date: 'Sep 2024',
     skills: ['JavaScript', 'Node.js'],
+    url: 'https://www.credly.com/badges/08f93420-ac4a-483c-8b14-37e8c67178cf/linked_in_profile',
   },
 ];
 

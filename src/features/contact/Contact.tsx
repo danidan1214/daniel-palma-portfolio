@@ -83,9 +83,12 @@ export function Contact() {
 
             <div className="space-y-4">
               {certifications.map((cert) => (
-                <div
+                <a
                   key={cert.id}
-                  className="p-4 bg-amber-50/50 border border-amber-200 rounded-xl"
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-4 bg-amber-50/50 border border-amber-200 rounded-xl hover:border-amber-400 hover:shadow-md transition-all"
                 >
                   <div className="flex items-start justify-between">
                     <div>
@@ -106,7 +109,7 @@ export function Contact() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </motion.div>
