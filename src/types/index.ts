@@ -17,7 +17,7 @@ export interface Skill {
   id: string;
   name: string;
   category: SkillCategory;
-  proficiency: number;
+  icon?: string;
 }
 
 export interface Certification {
