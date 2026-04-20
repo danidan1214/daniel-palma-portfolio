@@ -19,17 +19,17 @@ export function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-cream-50">
+    <div className="min-h-screen bg-slate-950">
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm'
+            ? 'bg-slate-900/90 backdrop-blur-md shadow-sm shadow-slate-950/50'
             : 'bg-transparent'
         }`}
       >
         <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
-          <a href="#hero" className="font-bold text-xl text-warm-900">
-            DP<span className="text-terracotta-500">.</span>
+          <a href="#hero" className="font-bold text-xl text-white">
+            DP<span className="text-indigo-400">.</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-8">
@@ -37,7 +37,7 @@ export function Layout({ children }: LayoutProps) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-warm-600 hover:text-terracotta-500 transition-colors text-sm font-medium"
+                  className="text-slate-400 hover:text-indigo-400 transition-colors text-sm font-medium"
                 >
                   {link.label}
                 </a>
@@ -47,7 +47,7 @@ export function Layout({ children }: LayoutProps) {
 
           <button
             type="button"
-            className="md:hidden text-warm-700 p-2"
+            className="md:hidden text-slate-300 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
@@ -62,7 +62,7 @@ export function Layout({ children }: LayoutProps) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white/95 backdrop-blur-md"
+              className="md:hidden bg-slate-900/95 backdrop-blur-md"
             >
               <ul className="px-6 py-4 space-y-3">
                 {navLinks.map((link) => (
@@ -70,7 +70,7 @@ export function Layout({ children }: LayoutProps) {
                     <a
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block text-warm-600 hover:text-terracotta-500 transition-colors font-medium py-1"
+                      className="block text-slate-400 hover:text-indigo-400 transition-colors font-medium py-1"
                     >
                       {link.label}
                     </a>
@@ -84,9 +84,9 @@ export function Layout({ children }: LayoutProps) {
 
       <main>{children}</main>
 
-      <footer className="py-8 bg-white">
+      <footer className="py-8 bg-slate-900">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-warm-500 text-sm">
+          <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} Daniel Palma. Built with React &amp; TypeScript.
           </p>
         </div>

@@ -61,32 +61,32 @@ const softIconMap: Record<string, ComponentType<{ className?: string }>> = {
 
 const categoryConfig: Record<
   SkillCategory,
-  { label: string; icon: ComponentType<{ className?: string }>; color: 'terracotta' | 'amber' | 'warm' }
+  { label: string; icon: ComponentType<{ className?: string }>; color: 'indigo' | 'blue' | 'slate' }
 > = {
-  frontend: { label: 'Frontend', icon: FiLayout, color: 'terracotta' },
-  backend: { label: 'Backend', icon: FiCode, color: 'amber' },
-  tools: { label: 'Tools', icon: FiTool, color: 'warm' },
-  soft: { label: 'Complementary Skills', icon: FiUsers, color: 'warm' },
+  frontend: { label: 'Frontend', icon: FiLayout, color: 'indigo' },
+  backend: { label: 'Backend', icon: FiCode, color: 'blue' },
+  tools: { label: 'Tools', icon: FiTool, color: 'slate' },
+  soft: { label: 'Complementary Skills', icon: FiUsers, color: 'slate' },
 };
 
 const colorStyles = {
-  terracotta: {
-    bg: 'bg-terracotta-50',
-    border: 'border-terracotta-200',
-    icon: 'text-terracotta-500',
-    tag: 'bg-terracotta-100 text-terracotta-700',
+  indigo: {
+    bg: 'bg-indigo-950/50',
+    border: 'border-indigo-500/30',
+    icon: 'text-indigo-400',
+    tag: 'bg-indigo-500/10 text-indigo-300',
   },
-  amber: {
-    bg: 'bg-amber-50',
-    border: 'border-amber-200',
-    icon: 'text-amber-600',
-    tag: 'bg-amber-100 text-amber-700',
+  blue: {
+    bg: 'bg-blue-950/50',
+    border: 'border-blue-500/30',
+    icon: 'text-blue-400',
+    tag: 'bg-blue-500/10 text-blue-300',
   },
-  warm: {
-    bg: 'bg-warm-100',
-    border: 'border-warm-300',
-    icon: 'text-warm-600',
-    tag: 'bg-warm-200 text-warm-700',
+  slate: {
+    bg: 'bg-slate-800/50',
+    border: 'border-slate-600',
+    icon: 'text-slate-400',
+    tag: 'bg-slate-700/50 text-slate-300',
   },
 } as const;
 
@@ -106,7 +106,7 @@ const grouped = technicalSkills.reduce<Record<SkillCategory, Skill[]>>(
 
 export function SkillsGrid() {
   return (
-    <Section id="skills" className="bg-white" ariaLabel="Technical skills">
+    <Section id="skills" className="bg-slate-900" ariaLabel="Technical skills">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeading subtitle="Technologies and tools I use to bring ideas to life.">
           Skills &amp; Technologies
@@ -129,7 +129,7 @@ export function SkillsGrid() {
               >
                 <div className="flex items-center gap-2 mb-6">
                   <Icon className={`text-xl ${styles.icon}`} />
-                  <h3 className="text-lg font-bold text-warm-800">{config.label}</h3>
+                  <h3 className="text-lg font-bold text-white">{config.label}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -159,8 +159,8 @@ export function SkillsGrid() {
             transition={{ duration: 0.5 }}
             className="mt-10 text-center"
           >
-            <h3 className="text-lg font-bold text-warm-800 mb-4 inline-flex items-center gap-2">
-              <FiStar className="text-terracotta-500" />
+            <h3 className="text-lg font-bold text-white mb-4 inline-flex items-center gap-2">
+              <FiStar className="text-indigo-400" />
               Complementary Skills
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
@@ -171,7 +171,7 @@ export function SkillsGrid() {
                     key={skill.id}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white/70 text-terracotta-700 border border-terracotta-200/60 cursor-default"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-transparent text-indigo-300 border border-indigo-500/30 cursor-default hover:shadow-lg hover:shadow-indigo-500/20 transition-shadow"
                   >
                     {SoftIcon && <SoftIcon className="text-xs" />}
                     {skill.name}

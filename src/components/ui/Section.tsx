@@ -11,7 +11,7 @@ export function Section({ id, className = '', ariaLabel, children }: SectionProp
   return (
     <section
       id={id}
-      className={`py-8 md:py-10 ${className}`}
+      className={`py-8 md:py-10 scroll-mt-16 ${className}`}
       aria-label={ariaLabel}
     >
       {children}

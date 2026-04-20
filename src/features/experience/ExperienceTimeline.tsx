@@ -12,14 +12,14 @@ const typeLabels: Record<Experience['type'], string> = {
 
 export function ExperienceTimeline() {
   return (
-    <Section id="experience" className="bg-cream-50" ariaLabel="Professional experience">
+    <Section id="experience" className="bg-slate-950" ariaLabel="Professional experience">
       <div className="max-w-5xl mx-auto px-6">
         <SectionHeading subtitle="My professional journey building web solutions and driving results.">
           Experience
         </SectionHeading>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-warm-200" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-slate-700" />
 
           {experiences.map((exp, index) => (
             <TimelineItem key={exp.id} experience={exp} index={index} />
@@ -48,41 +48,41 @@ function TimelineItem({ experience: exp, index }: TimelineItemProps) {
         isEven ? 'md:flex-row' : 'md:flex-row-reverse'
       } flex-row`}
     >
-      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-terracotta-500 rounded-full border-4 border-cream-100 -translate-x-1/2 z-10 mt-6" />
+      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-indigo-500 rounded-full border-4 border-slate-800 -translate-x-1/2 z-10 mt-6" />
 
       <div className={`ml-12 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-        <div className="bg-cream-50 border border-warm-200 rounded-xl p-6 hover:shadow-lg hover:border-warm-300 transition-all">
+        <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-6 hover:shadow-lg hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all">
           <div className="flex items-start justify-between mb-2">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-terracotta-600 bg-terracotta-50 px-2.5 py-1 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-full">
               <FiBriefcase className="text-sm" />
               {typeLabels[exp.type]}
             </span>
           </div>
 
-          <h3 className="text-xl font-bold text-warm-900 mb-1">{exp.role}</h3>
-          <p className="text-warm-600 font-medium mb-3">{exp.company}</p>
+          <h3 className="text-xl font-bold text-white mb-1">{exp.role}</h3>
+          <p className="text-slate-300 font-medium mb-3">{exp.company}</p>
 
-          <div className="flex flex-wrap items-center gap-3 text-sm text-warm-500 mb-4">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-400 mb-4">
             <span className="inline-flex items-center gap-1">
-              <FiCalendar className="text-amber-500" />
+              <FiCalendar className="text-blue-400" />
               {exp.period}
             </span>
             {exp.location && (
               <span className="inline-flex items-center gap-1">
-                <FiMapPin className="text-amber-500" />
+                <FiMapPin className="text-blue-400" />
                 {exp.location}
               </span>
             )}
           </div>
 
           {exp.description && (
-            <p className="text-warm-600 text-sm mb-4 leading-relaxed">{exp.description}</p>
+            <p className="text-slate-300 text-sm mb-4 leading-relaxed">{exp.description}</p>
           )}
 
           <ul className="space-y-2 mb-4">
             {exp.highlights.slice(0, 4).map((highlight, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-warm-700">
-                <span className="w-1.5 h-1.5 bg-amber-400 rounded-full mt-1.5 shrink-0" />
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-1.5 shrink-0" />
                 {highlight}
               </li>
             ))}
@@ -93,7 +93,7 @@ function TimelineItem({ experience: exp, index }: TimelineItemProps) {
               {exp.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs font-medium bg-warm-100 text-warm-600 px-2 py-0.5 rounded"
+                  className="text-xs font-medium bg-slate-800 text-slate-300 px-2 py-0.5 rounded"
                 >
                   {tech}
                 </span>
