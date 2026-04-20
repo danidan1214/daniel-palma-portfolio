@@ -1,4 +1,4 @@
-import type { Experience, Skill, Certification, ContactInfo } from '../types';
+import type { Experience, Skill, Certification, ContactInfo, HeroData } from '../types';
 
 export const experiences: Experience[] = [
   {
@@ -21,7 +21,6 @@ export const experiences: Experience[] = [
     location: 'Guayaquil, Ecuador',
     period: 'May 2023 — Feb 2026',
     type: 'full-time',
-    highlights: [],
     roles: [
       {
         role: 'Frontend Developer',
@@ -129,5 +128,18 @@ export const certifications: Certification[] = [
 export const contact: ContactInfo = {
   email: 'danieljpm554@gmail.com',
   linkedin: 'https://www.linkedin.com/in/daniel-palma-795621327/',
+  linkedinLabel: 'Daniel Palma',
   github: 'https://github.com/danidan1214',
+  githubLabel: 'danidan1214',
+};
+
+export const hero: HeroData = {
+  name: 'Daniel Palma',
+  titles: [
+    'Full Stack Developer',
+    'Frontend Engineer',
+    'React Developer',
+  ],
+  subtitle: 'Building modern web experiences with React & C#',
+  description: 'Crafting responsive interfaces, scalable APIs, and end-to-end solutions that connect people with technology.',
 };

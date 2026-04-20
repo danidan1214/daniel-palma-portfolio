@@ -30,7 +30,7 @@ import {
 } from 'react-icons/fi';
 import { skills } from '../../data/portfolio';
 import { Section, SectionHeading } from '../../components/ui';
-import type { Skill, SkillCategory } from '../../types';
+import type { Skill, SkillCategory, SoftSkillIcon } from '../../types';
 
 const iconMap: Record<Skill['id'], ComponentType<{ className?: string }>> = {
   javascript: SiJavascript,
@@ -50,7 +50,7 @@ const iconMap: Record<Skill['id'], ComponentType<{ className?: string }>> = {
   figma: SiFigma,
 };
 
-const softIconMap: Record<string, ComponentType<{ className?: string }>> = {
+const softIconMap: Record<SoftSkillIcon, ComponentType<{ className?: string }>> = {
   FiAward,
   FiZap,
   FiRefreshCw,
@@ -171,7 +171,7 @@ export function SkillsGrid() {
                     key={skill.id}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-transparent text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30 cursor-default hover:shadow-lg hover:shadow-indigo-500/20 transition-shadow"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-transparent text-indigo-600 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30 cursor-default hover:shadow-lg hover:shadow-indigo-500/20 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 dark:focus-within:ring-offset-slate-900 transition-shadow"
                   >
                     {SoftIcon && <SoftIcon className="text-xs" />}
                     {skill.name}

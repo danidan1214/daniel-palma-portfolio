@@ -10,23 +10,24 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
-  companyLogo?: string;
   location?: string;
   period: string;
   type: 'full-time' | 'part-time' | 'freelance';
   description?: string;
-  highlights: string[];
+  highlights?: string[];
   stack?: string[];
   roles?: ExperienceRole[];
 }
 
 export type SkillCategory = 'frontend' | 'backend' | 'tools' | 'soft';
 
+export type SoftSkillIcon = 'FiAward' | 'FiZap' | 'FiRefreshCw' | 'FiTarget' | 'FiMessageCircle' | 'FiCompass';
+
 export interface Skill {
   id: string;
   name: string;
   category: SkillCategory;
-  icon?: string;
+  icon?: SoftSkillIcon;
 }
 
 export interface Certification {
@@ -41,5 +42,14 @@ export interface Certification {
 export interface ContactInfo {
   email: string;
   linkedin: string;
-  github?: string;
+  github: string;
+  linkedinLabel: string;
+  githubLabel: string;
+}
+
+export interface HeroData {
+  name: string;
+  titles: string[];
+  subtitle: string;
+  description: string;
 }

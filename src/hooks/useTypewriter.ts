@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface TypewriterOptions {
   words: string[];
@@ -16,31 +16,40 @@ export function useTypewriter({
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const pauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const tick = useCallback(() => {
+  const clearPause = useCallback(() => {
+    if (pauseRef.current !== null) {
+      clearTimeout(pauseRef.current);
+      pauseRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
     const currentWord = words[wordIndex];
-    const nextText = isDeleting
-      ? currentWord.slice(0, text.length - 1)
-      : currentWord.slice(0, text.length + 1);
 
-    setText(nextText);
+    if (!isDeleting && text === currentWord) {
+      pauseRef.current = setTimeout(() => setIsDeleting(true), pauseDuration);
+      return clearPause;
+    }
 
-    if (!isDeleting && nextText === currentWord) {
-      setTimeout(() => setIsDeleting(true), pauseDuration);
+    if (isDeleting && text === '') {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
       return;
     }
 
-    if (isDeleting && nextText === '') {
-      setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }
-  }, [words, wordIndex, text, isDeleting, pauseDuration]);
-
-  useEffect(() => {
     const speed = isDeleting ? deletingSpeed : typingSpeed;
-    const timeout = setTimeout(tick, speed);
-    return () => clearTimeout(timeout);
-  }, [tick, isDeleting, typingSpeed, deletingSpeed]);
+    const timeout = setTimeout(() => {
+      setText(isDeleting
+        ? currentWord.slice(0, text.length - 1)
+        : currentWord.slice(0, text.length + 1));
+    }, speed);
 
-  return { text, wordIndex };
+    return () => clearTimeout(timeout);
+  }, [words, wordIndex, text, isDeleting, pauseDuration, typingSpeed, deletingSpeed, clearPause]);
+
+  useEffect(() => clearPause, [clearPause]);
+
+  return { text };
 }

@@ -42,6 +42,7 @@ export function Contact() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${contact.linkedinLabel} on LinkedIn (opens in a new tab)`}
                 className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-indigo-400 dark:hover:border-indigo-500/50 hover:shadow-md hover:shadow-indigo-500/10 transition-all group"
               >
                 <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
@@ -49,7 +50,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">LinkedIn</p>
-                  <p className="text-slate-800 dark:text-slate-200 font-medium">Daniel Palma</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-medium">{contact.linkedinLabel}</p>
                 </div>
               </a>
 
@@ -57,6 +58,7 @@ export function Contact() {
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${contact.githubLabel} on GitHub (opens in a new tab)`}
                 className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-indigo-400 dark:hover:border-indigo-500/50 hover:shadow-md hover:shadow-indigo-500/10 transition-all group"
               >
                 <div className="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center group-hover:bg-indigo-500/20 transition-colors">
@@ -64,7 +66,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">GitHub</p>
-                  <p className="text-slate-800 dark:text-slate-200 font-medium">danidan1214</p>
+                  <p className="text-slate-800 dark:text-slate-200 font-medium">{contact.githubLabel}</p>
                 </div>
               </a>
             </div>
@@ -88,6 +90,7 @@ export function Contact() {
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${cert.title} by ${cert.issuer} (opens in a new tab)`}
                   className="block p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-500/20 rounded-xl hover:border-blue-400 dark:hover:border-blue-500/50 hover:shadow-md hover:shadow-blue-500/10 transition-all"
                 >
                   <div className="flex items-start justify-between">

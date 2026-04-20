@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { useScrolled } from '../hooks/useScrolled';
@@ -19,6 +19,8 @@ export function Layout({ children }: LayoutProps) {
   const isScrolled = useScrolled(20);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -31,8 +33,29 @@ export function Layout({ children }: LayoutProps) {
     };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:text-sm focus:font-medium"
+      >
+        Skip to content
+      </a>
+
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
@@ -76,6 +99,7 @@ export function Layout({ children }: LayoutProps) {
               {theme === 'dark' ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
             <button
+              ref={triggerRef}
               type="button"
               className="text-slate-500 dark:text-slate-300 p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -90,12 +114,15 @@ export function Layout({ children }: LayoutProps) {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
+              ref={menuRef}
               key="mobile-menu"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800"
+              role="dialog"
+              aria-label="Navigation menu"
             >
               <ul className="px-6 py-4 space-y-3">
                 {navLinks.map((link) => (
@@ -124,7 +151,7 @@ export function Layout({ children }: LayoutProps) {
         </AnimatePresence>
       </header>
 
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
 
       <footer className="py-8 bg-slate-100 dark:bg-slate-900">
         <div className="max-w-5xl mx-auto px-6 text-center">

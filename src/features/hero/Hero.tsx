@@ -1,16 +1,10 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import { contact } from '../../data/portfolio';
+import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
+import { contact, hero } from '../../data/portfolio';
 import { useTypewriter } from '../../hooks/useTypewriter';
 
-const titles = [
-  'Full Stack Developer',
-  'Frontend Engineer',
-  'React Developer',
-];
-
 export function Hero() {
-  const { text } = useTypewriter({ words: titles });
+  const { text } = useTypewriter({ words: hero.titles });
 
   return (
     <section
@@ -18,9 +12,9 @@ export function Hero() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16"
       aria-label="Introduction"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
-      <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" aria-hidden="true" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.p
@@ -32,6 +26,7 @@ export function Hero() {
           {text}
           <span
             className="inline-block w-[2px] h-4 ml-0.5 bg-indigo-600 dark:bg-indigo-400 align-middle animate-blink"
+            aria-hidden="true"
           />
         </motion.p>
 
@@ -41,7 +36,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
         >
-          Daniel Palma
+          {hero.name}
         </motion.h1>
 
         <motion.p
@@ -61,8 +56,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-xl mx-auto"
         >
-          Crafting responsive interfaces, scalable APIs, and end-to-end solutions
-          that connect people with technology.
+          {hero.description}
         </motion.p>
 
         <motion.div
@@ -76,6 +70,14 @@ export function Hero() {
             className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white rounded-lg font-medium hover:from-indigo-400 hover:to-cyan-400 transition-all shadow-lg shadow-indigo-500/25"
           >
             View Experience
+          </a>
+          <a
+            href="/cv/daniel-palma-cv.pdf"
+            download
+            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
+          >
+            <FiDownload size={16} />
+            Download CV
           </a>
           <a
             href="#contact"
@@ -95,7 +97,7 @@ export function Hero() {
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
+            aria-label="LinkedIn profile (opens in a new tab)"
             className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
           >
             <FiLinkedin />
@@ -111,7 +113,7 @@ export function Hero() {
             href={contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub profile"
+            aria-label="GitHub profile (opens in a new tab)"
             className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
           >
             <FiGithub />
@@ -124,6 +126,7 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
+        aria-hidden="true"
       >
         <a href="#experience" aria-label="Scroll to experience">
           <motion.div

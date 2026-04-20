@@ -4,8 +4,6 @@
 
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-heading: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, Consolas, monospace;
 }
 
 @layer base {
