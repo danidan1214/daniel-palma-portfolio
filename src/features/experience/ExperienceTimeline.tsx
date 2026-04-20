@@ -167,9 +167,9 @@ function GroupedTimelineItem({ experience: exp, index }: GroupedTimelineItemProp
           {/* Role phases */}
           {exp.roles && (
             <div className="relative pl-0 md:pl-5 border-l-0 md:border-l-2 border-indigo-500/30 space-y-0">
-              {exp.roles.map((role, roleIndex) => {
+              {exp.roles!.map((role, roleIndex) => {
                 const isExpanded = expandedPhase === roleIndex;
-                const isLast = roleIndex === exp.roles.length - 1;
+                const isLast = roleIndex === exp.roles!.length - 1;
 
                 return (
                   <div key={roleIndex} className="relative">
