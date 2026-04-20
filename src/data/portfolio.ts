@@ -3,8 +3,8 @@ import type { Experience, Skill, Certification, ContactInfo } from '../types';
 export const experiences: Experience[] = [
   {
     id: 'independent',
-    role: 'Programador Full Stack',
-    company: 'Profesional Independiente',
+    role: 'Full Stack Developer',
+    company: 'Self-employed',
     period: 'Feb 2025 — Present',
     type: 'freelance',
     description: 'Developing end-to-end web solutions for independent clients.',

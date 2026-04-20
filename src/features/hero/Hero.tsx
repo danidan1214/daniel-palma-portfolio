@@ -63,7 +63,7 @@ export function Hero() {
             href="#experience"
             className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white rounded-lg font-medium hover:from-indigo-400 hover:to-cyan-400 transition-all shadow-lg shadow-indigo-500/25"
           >
-            View My Work
+            View Experience
           </a>
           <a
             href="#contact"
