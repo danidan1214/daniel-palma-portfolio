@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16 pt-16 md:pt-0"
       aria-label="Introduction"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" aria-hidden="true" />
@@ -34,7 +34,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight"
         >
           {hero.name}
         </motion.h1>
@@ -43,7 +43,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-4 leading-relaxed max-w-2xl mx-auto"
+          className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-3 sm:mb-4 leading-relaxed max-w-2xl mx-auto"
         >
           Building modern web experiences with{' '}
           <span className="bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent font-semibold">React</span> &{' '}
@@ -54,7 +54,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-slate-500 dark:text-slate-400 text-lg mb-10 max-w-xl mx-auto"
+          className="text-slate-500 dark:text-slate-400 text-base sm:text-lg mb-6 sm:mb-10 max-w-xl mx-auto"
         >
           {hero.description}
         </motion.p>
@@ -63,25 +63,25 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           <a
             href="#experience"
-            className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white rounded-lg font-medium hover:from-indigo-400 hover:to-cyan-400 transition-all shadow-lg shadow-indigo-500/25"
+            className="px-6 py-2.5 sm:px-8 sm:py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white rounded-lg font-medium hover:from-indigo-400 hover:to-cyan-400 transition-all shadow-lg shadow-indigo-500/25"
           >
             View Experience
           </a>
           <a
             href="/cv/daniel-palma-cv.pdf"
             download
-            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
           >
             <FiDownload size={16} />
             Download CV
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
+            className="px-6 py-2.5 sm:px-8 sm:py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-indigo-500/50 transition-colors"
           >
             Get in Touch
           </a>
@@ -91,21 +91,21 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex items-center justify-center gap-6 mt-12"
+          className="flex items-center justify-center gap-6 mt-8 sm:mt-12"
         >
           <a
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile (opens in a new tab)"
-            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xl sm:text-2xl"
           >
             <FiLinkedin />
           </a>
           <a
             href={`mailto:${contact.email}`}
             aria-label="Send email"
-            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xl sm:text-2xl"
           >
             <FiMail />
           </a>
@@ -114,7 +114,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile (opens in a new tab)"
-            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-2xl"
+            className="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xl sm:text-2xl"
           >
             <FiGithub />
           </a>
