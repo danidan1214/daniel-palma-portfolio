@@ -34,9 +34,11 @@ export function useTypewriter({
     }
 
     if (isDeleting && text === '') {
-      setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
-      return;
+      const transition = setTimeout(() => {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
+      }, 0);
+      return () => clearTimeout(transition);
     }
 
     const speed = isDeleting ? deletingSpeed : typingSpeed;
