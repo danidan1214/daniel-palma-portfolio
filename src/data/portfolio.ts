@@ -9,10 +9,10 @@ export const experiences: Experience[] = [
     type: 'freelance',
     description: 'Developing end-to-end web solutions for independent clients.',
     highlights: [
-      'Building full stack applications with React and C# for diverse client needs.',
+      'Building full stack applications with React, C#, and Laravel for diverse client needs.',
       'Managing projects from requirements gathering through deployment.',
     ],
-    stack: ['React', 'C#', 'Node.js', 'TypeScript', 'SQL'],
+    stack: ['React', 'C#', 'Laravel', 'Node.js', 'TypeScript', 'SQL'],
   },
   {
     id: 'funiber',
@@ -81,6 +81,7 @@ export const skills: Skill[] = [
   { id: 'html5', name: 'HTML5', category: 'frontend' },
   { id: 'css3', name: 'CSS3', category: 'frontend' },
   { id: 'csharp', name: 'C#', category: 'backend' },
+  { id: 'laravel', name: 'Laravel', category: 'backend' },
   { id: 'nodejs', name: 'Node.js', category: 'backend' },
   { id: 'rest-apis', name: 'REST APIs', category: 'backend' },
   { id: 'sql', name: 'SQL', category: 'backend' },
